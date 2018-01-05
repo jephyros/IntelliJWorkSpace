@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="krchismvc:war">
+    <output-path>$PROJECT_DIR$/krchismvc/target</output-path>
+    <root id="archive" name="krchismvc-1.0.0-BUILD-SNAPSHOT.war">
+      <element id="artifact" artifact-name="krchismvc:war exploded" />
+    </root>
+  </artifact>
+</component>
