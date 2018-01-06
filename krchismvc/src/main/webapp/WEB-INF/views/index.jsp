@@ -4,23 +4,18 @@
 <%@ page session="false" %>
 <html>
 <head>
+    <title>KrChisBootStrap</title>
     <%@include file="include/header.jsp"%>
 
 </head>
 <body>
     <%@include file="include/navimenu.jsp"%>
 
+    메인화면 <br>
 
-<h1>
-	Hello world!
-    헬로우월드
-    <%=request.getContextPath()%>
-</h1>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
+    <%@include file="include/footer.jsp"%>
 
 </body>
 </html>
