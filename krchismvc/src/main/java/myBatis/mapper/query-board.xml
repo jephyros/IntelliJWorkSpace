@@ -3,14 +3,14 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.cis.stspjt.board.dao.BoardDao">
-    
-	<select id="boardList" resultType="com.cis.krchismvc.repository.User">
-         <![CDATA[					  
-		    select num,title,content,lst_modify_id,lst_modify_dt
-		    from board
-		    order by num desc
+<mapper namespace="com.cis.krchismvc.chkdb">
+
+    <select id="selectCmtuser" resultType="com.cis.krchismvc.chkdb.Usertest"   >
+        <![CDATA[
+			  select user_id,user_name,passwd,remark,lst_modify_id,lst_modify_dt
+			  from t_cmt_user
+			  order by user_id
 		]]>
-    </select> 
+    </select>
 
 </mapper>
