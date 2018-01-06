@@ -1,26 +1,29 @@
 
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR" isELIgnored="false"%>
-    
-c
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" isELIgnored="false"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Å×½ºÆ®</title>
+<title>í…ŒìŠ¤íŠ¸</title>
 </head>
 <body>
-	 <h1>USER¸®½ºÆ®</h1>
+	 <h1>USERë¦¬ìŠ¤íŠ¸</h1>
 	
 	
-	<h2>»ç¿ëÀÚ¸®½ºÆ®</h2>
+	<h2>ì‚¬ìš©ìžë¦¬ìŠ¤íŠ¸</h2>
+     ì´ ${fn:length(userList)}  ëª…ìž…ë‹ˆë‹¤.
+
 <table width ="70%" border ="1" cellpadding="0" cellspacing="0" >
 	<tr align ="center" bgcolor="yellow">
 		<td>ID</td>
-		<td>ÀÌ¸§</td>
-		<td>Æ¯ÀÌ»çÇ×</td>		
-		<td>ÃÖÁ¾¼öÁ¤ÀÚID</td>
-		<td>ÃÖÁ¾¼öÁ¤ÀÏÀÚ</td>
+		<td>ì´ë¦„</td>
+		<td>íŠ¹ì´ì‚¬í•­</td>		
+		<td>ìµœì¢…ìˆ˜ì •ìžID</td>
+		<td>ìµœì¢…ìˆ˜ì •ì¼ìž</td>
 		
 		
 	</tr>
@@ -40,7 +43,7 @@ c
 
 </table>
 <br><br><br>
-<a href="${pageContext.request.contextPath}/test/adduserForm.do"> µî·Ï </a>
+<a href="${pageContext.request.contextPath}/test/adduserForm.do"> ë“±ë¡ </a>
 
 </body>
 </html>
