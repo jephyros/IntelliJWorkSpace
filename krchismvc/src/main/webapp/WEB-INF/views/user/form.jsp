@@ -16,24 +16,24 @@
 <div class="container">
     <form>
         <div class="form-group">
-            <label for="exampleInputEmail1">이메일주소</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="이메일을 입력하세요">
+            <label for="userId">아이디</label>
+            <input type="text" class="form-control" id="userId" name="userId" placeholder="아이디를입력하세요">
+        </div>
+        <div class="form-group">
+            <label for="name">이름</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="이름를입력하세요">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">암호</label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="암호">
         </div>
+
         <div class="form-group">
-            <label for="exampleInputFile">파일 업로드</label>
-            <input type="file" id="exampleInputFile">
-            <p class="help-block">여기에 블록레벨 도움말 예제</p>
+            <label for="exampleInputEmail1">이메일주소</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" name ="email" placeholder="이메일을 입력하세요">
         </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox"> 입력을 기억합니다
-            </label>
-        </div>
-        <button type="submit" class="btn btn-default">제출</button>
+
+        <button type="submit" class="btn btn-success">회원가입</button>
     </form>
 </div>
 
