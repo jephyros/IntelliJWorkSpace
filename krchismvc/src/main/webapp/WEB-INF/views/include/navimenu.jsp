@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
 
+
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -28,9 +29,11 @@
                 <button type="submit" class="btn btn-default">검색</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">로그인</a></li>
+
+                <li><a href="">11 ${sessionScope.krUser.name} 22</a></li>
+                <li><a href="${myContextPath}/users/loginform">로그인</a></li>
                 <li><a href="${myContextPath}/users/form">회원가입</a></li>
-                <li><a href="#">로그아웃</a></li>
+                <li><a href="${myContextPath}/users/logout">로그아웃</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">마이페이지 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">

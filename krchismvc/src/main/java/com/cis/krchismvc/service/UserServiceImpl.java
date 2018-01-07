@@ -37,4 +37,18 @@ public class UserServiceImpl implements UserService {
         }
         return userList;
     }
+
+    @Override
+    public KrUser getUserinfo(String userId) throws DataAccessException {
+
+        KrUser kruser = null;
+
+        try{
+            kruser = userRepository.getUserinfo(userId);
+        }catch(DataAccessException e){
+            e.printStackTrace();
+            throw e;
+        }
+        return kruser;
+    }
 }

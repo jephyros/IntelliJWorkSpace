@@ -9,5 +9,6 @@ import java.util.List;
 public interface UserService {
     public void creatuser(KrUser krUser) throws DataAccessException;
     public List<KrUser> userList() throws DataAccessException;
+    public KrUser getUserinfo(String userId) throws DataAccessException;
 
 }

@@ -2,6 +2,7 @@ package com.cis.krchismvc.controller;
 
 import com.cis.krchismvc.repository.KrUser;
 import com.cis.krchismvc.service.UserService;
+import com.cis.krchismvc.util.HttpSessionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -48,6 +50,36 @@ public class UserController {
         model.addAttribute("userList",userList);
 
         return "/user/userList";
+    }
+    //로그인폼
+    @GetMapping("/loginform")
+    private String loginForm(){
+        return "user/login";
+    }
+    //로그인폼
+    @PostMapping("/login")
+    private String login(String userId, String password, HttpSession session){
+        logger.info("로그인정보 " + userId +"/" + password);
+        KrUser krUser = userService.getUserinfo(userId);
+        //사용자없으면
+        if (krUser ==null){
+            return "user/login";
+        }
+        //비번틀리면
+        if (!krUser.getPassword().equals(password)){
+            return "user/login";
+        }
+
+        //로그인성공하면
+        session.setAttribute(HttpSessionUtils.USER_SESSION_KEY,krUser);
+        return "redirect:/";
+    }
+    //로그아웃
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        logger.info(session.getAttribute(HttpSessionUtils.USER_SESSION_KEY).toString());
+        session.removeAttribute(HttpSessionUtils.USER_SESSION_KEY);
+        return "redirect:/";
     }
 
 }

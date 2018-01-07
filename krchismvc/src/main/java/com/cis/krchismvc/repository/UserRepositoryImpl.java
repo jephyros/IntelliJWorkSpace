@@ -27,4 +27,11 @@ public class UserRepositoryImpl implements UserRepository {
         List<KrUser> userList =sqlSession.selectList("com.cis.krchismvc.repository.UserRepository.userList");
         return userList;
     }
+
+    @Override
+    public KrUser getUserinfo(String userId) {
+        return sqlSession.selectOne("com.cis.krchismvc.repository.UserRepository.getUserinfo",userId);
+
+
+    }
 }
