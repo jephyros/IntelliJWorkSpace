@@ -14,7 +14,7 @@
 
 
 <div class="container">
-    <form>
+    <form method="post" action="${myContextPath}/users/">
         <div class="form-group">
             <label for="userId">아이디</label>
             <input type="text" class="form-control" id="userId" name="userId" placeholder="아이디를입력하세요">
@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">암호</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="암호">
+            <input type="password" class="form-control" id="exampleInputPassword1" name ="password" placeholder="암호">
         </div>
 
         <div class="form-group">
@@ -33,7 +33,7 @@
             <input type="email" class="form-control" id="exampleInputEmail1" name ="email" placeholder="이메일을 입력하세요">
         </div>
 
-        <button type="submit" class="btn btn-success">회원가입</button>
+        <button type="submit" class="btn btn-success">회원가입하기</button>
     </form>
 </div>
 

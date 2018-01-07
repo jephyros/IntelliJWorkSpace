@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("userServiceImpl")
-public class UserServiceImpl implements UsertestService {
+@Service("usertestServiceImpl")
+public class UsertestServiceImpl implements UsertestService {
 
 
     @Autowired
