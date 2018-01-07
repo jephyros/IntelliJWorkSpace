@@ -11,6 +11,20 @@
 <title>테스트</title>
 </head>
 <body>
+
+<%
+
+    session.setAttribute("id", "test111");
+
+%>
+
+세션값
+
+
+
+<c:out value="${sessionScope.id}"/>
+
+
 	 <h1>USER리스트</h1>
 	
 	

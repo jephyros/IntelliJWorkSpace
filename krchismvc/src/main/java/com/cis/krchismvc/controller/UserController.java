@@ -58,26 +58,29 @@ public class UserController {
     }
     //로그인폼
     @PostMapping("/login")
-    private String login(String userId, String password, HttpSession session){
+    private String login(String userId, String password, HttpSession session,Model model){
         logger.info("로그인정보 " + userId +"/" + password);
         KrUser krUser = userService.getUserinfo(userId);
         //사용자없으면
         if (krUser ==null){
+            model.addAttribute("errorMsg","사용자정보가 정확하지않습니다.");
             return "user/login";
         }
         //비번틀리면
         if (!krUser.getPassword().equals(password)){
+            model.addAttribute("errorMsg","사용자장보가 정확하지않습니다.");
             return "user/login";
         }
 
         //로그인성공하면
         session.setAttribute(HttpSessionUtils.USER_SESSION_KEY,krUser);
+
         return "redirect:/";
     }
     //로그아웃
     @GetMapping("/logout")
     public String logout(HttpSession session) {
-        logger.info(session.getAttribute(HttpSessionUtils.USER_SESSION_KEY).toString());
+        //logger.info(session.getAttribute(HttpSessionUtils.USER_SESSION_KEY).toString());
         session.removeAttribute(HttpSessionUtils.USER_SESSION_KEY);
         return "redirect:/";
     }
