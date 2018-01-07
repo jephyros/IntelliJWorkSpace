@@ -6,10 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 @Controller
 @RequestMapping("/users")
@@ -36,6 +38,16 @@ public class UserController {
         userService.creatuser(krUser);
 
         return "redirect:/";
+    }
+    //회원목록
+    @GetMapping("/")
+    private String userList(Model model){
+
+        List<KrUser> userList=  userService.userList();
+
+        model.addAttribute("userList",userList);
+
+        return "/user/userList";
     }
 
 }

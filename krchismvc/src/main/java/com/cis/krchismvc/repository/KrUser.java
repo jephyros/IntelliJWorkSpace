@@ -32,6 +32,38 @@ public class KrUser {
         this.modifyid = modifyid;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public String getModifyid() {
+        return modifyid;
+    }
+
+    public String getModifyDate() {
+        return modifyDate;
+    }
+
     @Override
     public String toString() {
         return "KrUser{" +

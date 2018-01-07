@@ -37,7 +37,7 @@
                         <li><a href="#">정보수정</a></li>
                         <li><a href="#">내활동내역</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">회원목록조회</a></li>
+                        <li><a href="${myContextPath}/users/">회원목록조회</a></li>
                     </ul>
                 </li>
             </ul>

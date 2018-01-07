@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 @Repository("userRepositoryImpl")
 public class UserRepositoryImpl implements UserRepository {
 
@@ -18,5 +20,11 @@ public class UserRepositoryImpl implements UserRepository {
         sqlSession.insert("com.cis.krchismvc.repository.UserRepository.createuser",krUser);
 
 
+    }
+
+    @Override
+    public List<KrUser> userList() {
+        List<KrUser> userList =sqlSession.selectList("com.cis.krchismvc.repository.UserRepository.userList");
+        return userList;
     }
 }
