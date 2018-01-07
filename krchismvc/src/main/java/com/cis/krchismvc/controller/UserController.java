@@ -30,12 +30,12 @@ public class UserController {
     @PostMapping("/")
     private String createUser(KrUser krUser){
 
-        logger.info("이벤트확인" + krUser.toString());
-        //logger.info("파라미터값 " + krUser.toString());
-        //userService.creatuser(krUser);
+        //logger.info("이벤트확인" + krUser.toString());
+        logger.info("파라미터값 " + krUser.toString());
 
-        return null;
-        //return "redirect:/";
+        userService.creatuser(krUser);
+
+        return "redirect:/";
     }
 
 }

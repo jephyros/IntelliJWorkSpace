@@ -2,7 +2,7 @@ package com.cis.krchismvc.repository;
 
 public class KrUser {
     private Long id;
-    private String userID;
+    private String userId;
     private String name;
     private String password;
     private String email;
@@ -14,9 +14,7 @@ public class KrUser {
         this.id = id;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
-    }
+    public void setUserId(String userId) { this.userId = userId; }
 
     public void setName(String name) {
         this.name = name;
@@ -38,7 +36,7 @@ public class KrUser {
     public String toString() {
         return "KrUser{" +
                 "id=" + id +
-                ", userID='" + userID + '\'' +
+                ", userId='" + userId + '\'' +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
