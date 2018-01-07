@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Repository("userDaoImpl")
-public class UserDaoImpl implements UserDao {
+@Repository("userRepositoryImpl")
+public class UserRepositoryImpl implements UserRepository {
 
     @Autowired
     private SqlSession sqlSession;
@@ -15,7 +15,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void createuser(KrUser krUser) {
-        sqlSession.insert("com.cis.krchismvc.repository.UserDao.createuser",krUser);
+        sqlSession.insert("com.cis.krchismvc.repository.UserRepository.createuser",krUser);
 
 
     }

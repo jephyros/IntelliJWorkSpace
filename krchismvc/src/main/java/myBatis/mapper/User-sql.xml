@@ -3,7 +3,7 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.cis.krchismvc.repository.UserDao">
+<mapper namespace="com.cis.krchismvc.repository.UserRepository">
     <insert id="createuser" parameterType="com.cis.krchismvc.repository.KrUser">
         <![CDATA[
 			 insert into Kruser (userId,name,password,email,createDate,modifyid,modifyDate)

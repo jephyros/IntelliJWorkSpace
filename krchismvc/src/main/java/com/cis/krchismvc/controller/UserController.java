@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 @RequestMapping("/users")
 public class UserController {
@@ -19,13 +22,14 @@ public class UserController {
     //회원가입폼
     @GetMapping("/form")
     public String form(){
-        //logger.info("반환값체크리스타트 최신버전도");
+
         return "user/form";
 
     }
     //회원가입처리
     @PostMapping("/")
-    private String createUser(@PathVariable KrUser krUser){
+    private String createUser(KrUser krUser){
+
         logger.info("이벤트확인" + krUser.toString());
         //logger.info("파라미터값 " + krUser.toString());
         //userService.creatuser(krUser);
