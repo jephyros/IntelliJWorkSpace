@@ -39,7 +39,7 @@
                 <div class="col-sm-offset-2 col-sm-10">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox"> Remember me
+                            <input type="checkbox" name="rememberChk" value="checked"> Remember me
                         </label>
                     </div>
 
@@ -59,31 +59,40 @@
 
 
 <script>
-$("#loginbtn").click(logininputchk);
+    $("#loginbtn").click(logininputchk);
 
-function logininputchk(e){
-    e.preventDefault();   // 이벤트 맊기
-    if ($("#userId").val()==="")
-    {
-        alert("아이디를 입력하세요!!");
-        $("#userId").focus();
-        return false;
+    function logininputchk(e){
+        e.preventDefault();   // 이벤트 맊기
+        if ($("#userId").val()==="")
+        {
+            alert("아이디를 입력하세요!!");
+            $("#userId").focus();
+            return false;
+
+        }
+        if ($("#password").val()==="")
+        {
+            alert("비밀번호을 입력하세요!!");
+            $("#password").focus();
+            return false;
+        }
+        $('#formlogin')
+            .attr('method','post')
+            .attr('action','${myContextPath}/users/login/')
+            .submit();
 
     }
-    if ($("#password").val()==="")
-    {
-        alert("비밀번호을 입력하세요!!");
-        $("#password").focus();
-        return false;
-    }
-    $('#formlogin')
-        .attr('method','post')
-        .attr('action','${myContextPath}/users/login/')
-        .submit();
 
-}
+   /* var userInputId = getCookie("userInputId");
+    $("#userId").val(userInputId);
+
+    if($("#userId").val() != ""){ // 그 전에 ID를 저장해서 처음 페이지 로딩 시, 입력 칸에 저장된 ID가 표시된 상태라면,
+        $("#rememberChk").attr("checked", true); // ID 저장하기를 체크 상태로 두기.
+    }*/
 
 </script>
+
+
 
 </body>
 </html>

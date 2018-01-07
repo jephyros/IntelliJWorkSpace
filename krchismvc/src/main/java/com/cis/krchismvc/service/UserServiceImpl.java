@@ -2,6 +2,7 @@ package com.cis.krchismvc.service;
 
 import com.cis.krchismvc.repository.KrUser;
 import com.cis.krchismvc.repository.UserRepository;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
@@ -12,13 +13,15 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserRepository userRepository;
+    private SqlSession sqlSession;
+    //private UserRepository userRepository;
 
     @Override
     public void creatuser(KrUser krUser) throws DataAccessException {
-        try{
-            userRepository.createuser(krUser);
-        }catch (DataAccessException e){
+        try {
+            //userRepository.createuser(krUser);
+            sqlSession.insert("com.cis.krchismvc.repository.UserRepository.createuser", krUser);
+        } catch (DataAccessException e) {
             e.printStackTrace();
             throw e;
         }
@@ -29,9 +32,11 @@ public class UserServiceImpl implements UserService {
     public List<KrUser> userList() throws DataAccessException {
         List<KrUser> userList = null;
 
-        try{
-            userList = userRepository.userList();
-        }catch(DataAccessException e){
+        try {
+            //userList = userRepository.userList();
+            userList = sqlSession.selectList("com.cis.krchismvc.repository.UserRepository.userList");
+
+        } catch (DataAccessException e) {
             e.printStackTrace();
             throw e;
         }
@@ -43,9 +48,10 @@ public class UserServiceImpl implements UserService {
 
         KrUser kruser = null;
 
-        try{
-            kruser = userRepository.getUserinfo(userId);
-        }catch(DataAccessException e){
+        try {
+            //kruser = userRepository.getUserinfo(userId);
+            kruser = sqlSession.selectOne("com.cis.krchismvc.repository.UserRepository.getUserinfo", userId);
+        } catch (DataAccessException e) {
             e.printStackTrace();
             throw e;
         }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -25,14 +26,15 @@ public class UserController {
 
     //회원가입폼
     @GetMapping("/form")
-    public String form(){
+    public String form() {
 
         return "user/form";
 
     }
+
     //회원가입처리
     @PostMapping("/")
-    private String createUser(KrUser krUser){
+    private String createUser(KrUser krUser) {
 
         //logger.info("이벤트확인" + krUser.toString());
         logger.info("파라미터값 " + krUser.toString());
@@ -41,42 +43,54 @@ public class UserController {
 
         return "redirect:/";
     }
+
     //회원목록
     @GetMapping("/")
-    private String userList(Model model){
+    private String userList(Model model) {
 
-        List<KrUser> userList=  userService.userList();
+        List<KrUser> userList = userService.userList();
 
-        model.addAttribute("userList",userList);
+        model.addAttribute("userList", userList);
 
         return "/user/userList";
     }
+
     //로그인폼
     @GetMapping("/loginform")
-    private String loginForm(){
+    private String loginForm() {
         return "user/login";
     }
-    //로그인폼
+
+    //로그인
     @PostMapping("/login")
-    private String login(String userId, String password, HttpSession session,Model model){
-        logger.info("로그인정보 " + userId +"/" + password);
+    private String login(String userId, String password, String rememberChk, HttpSession session, Model model) {
+        logger.info("로그인정보 :" + rememberChk );
+
+        // rememberChk = checked 이면 아이디기역 쿠키생성하자
         KrUser krUser = userService.getUserinfo(userId);
         //사용자없으면
-        if (krUser ==null){
-            model.addAttribute("errorMsg","사용자정보가 정확하지않습니다.");
+        if (krUser == null) {
+            model.addAttribute("errorMsg", "사용자정보가 정확하지않습니다.");
             return "user/login";
         }
         //비번틀리면
-        if (!krUser.getPassword().equals(password)){
-            model.addAttribute("errorMsg","사용자장보가 정확하지않습니다.");
+        if (!krUser.getPassword().equals(password)) {
+            model.addAttribute("errorMsg", "사용자장보가 정확하지않습니다.");
             return "user/login";
         }
 
         //로그인성공하면
-        session.setAttribute(HttpSessionUtils.USER_SESSION_KEY,krUser);
+        session.setAttribute(HttpSessionUtils.USER_SESSION_KEY, krUser);
+//        Cookie cookie = new Cookie("userInputId", userId);
+//        cookie.setMaxAge(7*24*60*60);
+//        response.addCookie(cookie);
+
+        //response.addCookie(new Cookie("login_save",""));
+
 
         return "redirect:/";
     }
+
     //로그아웃
     @GetMapping("/logout")
     public String logout(HttpSession session) {
