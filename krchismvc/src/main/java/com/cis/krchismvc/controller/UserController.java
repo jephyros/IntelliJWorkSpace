@@ -10,11 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/users")
@@ -96,6 +96,58 @@ public class UserController {
     public String logout(HttpSession session) {
         //logger.info(session.getAttribute(HttpSessionUtils.USER_SESSION_KEY).toString());
         session.removeAttribute(HttpSessionUtils.USER_SESSION_KEY);
+        return "redirect:/";
+    }
+
+    //개인정보수정폼 열기
+    @GetMapping("/updateForm")
+    public String updateForm(Model model,HttpSession session){
+        if(!HttpSessionUtils.isLoginKruser(session)){
+            model.addAttribute("errorMsg", "개인정보수정을위해 로그인해주세요");
+            return "user/login";
+        }
+        KrUser sessionusered = HttpSessionUtils.getSessionedUser(session);
+
+        KrUser dbKruser = userService.getUserinfobyId(sessionusered.getId());
+
+        model.addAttribute("userinfo",dbKruser);
+        return "user/updateForm";
+    }
+
+    //개인정보수정 저장
+    @PostMapping("/updateUser")
+    public String updateUser(KrUser krUser,HttpSession session,Model model){
+        if(!HttpSessionUtils.isLoginKruser(session)){
+            model.addAttribute("errorMsg", "개인정보수정을위해 로그인해주세요");
+            return "user/login";
+        }
+        KrUser sessionusered = HttpSessionUtils.getSessionedUser(session);
+        KrUser dbKruser = userService.getUserinfobyId(sessionusered.getId());
+
+        if (!sessionusered.getId().equals(krUser.getId())){
+            model.addAttribute("errorMsg", "로그인사용자의 아이디와 일치하지않습니다.");
+            return "user/login";
+
+        }
+
+        Map<String, Object> paraMap = new HashMap<String, Object>();
+
+        //업데이트 값이 변화된것만
+        if (!dbKruser.getName().equals(krUser.getName())){
+            paraMap.put("name",krUser.getName());
+        }
+        if (!dbKruser.getEmail().equals(krUser.getEmail())) {
+            paraMap.put("email", krUser.getEmail());
+        }
+        //업데이트내역이있을때만
+        if (paraMap.size() > 0){
+            //업데이트필수컬럼
+            paraMap.put("id",krUser.getId());
+            paraMap.put("modifyid",sessionusered.getId());
+
+            userService.updateUser(paraMap);
+        }
+
         return "redirect:/";
     }
 

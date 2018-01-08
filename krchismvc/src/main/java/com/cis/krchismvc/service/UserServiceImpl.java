@@ -1,13 +1,15 @@
 package com.cis.krchismvc.service;
 
 import com.cis.krchismvc.repository.KrUser;
-import com.cis.krchismvc.repository.UserRepository;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+
 import java.util.List;
+import java.util.Map;
+
 
 @Service("userServiceImpl")
 public class UserServiceImpl implements UserService {
@@ -51,6 +53,32 @@ public class UserServiceImpl implements UserService {
         try {
             //kruser = userRepository.getUserinfo(userId);
             kruser = sqlSession.selectOne("com.cis.krchismvc.repository.UserRepository.getUserinfo", userId);
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return kruser;
+    }
+
+    @Override
+    public void updateUser(Map<String, Object> paraMap) throws DataAccessException {
+        try {
+            //kruser = userRepository.getUserinfo(userId);
+             sqlSession.update("com.cis.krchismvc.repository.UserRepository.updateUser", paraMap);
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+            throw e;
+        }
+
+    }
+
+    @Override
+    public KrUser getUserinfobyId(long id) throws DataAccessException {
+        KrUser kruser = null;
+
+        try {
+            //kruser = userRepository.getUserinfo(userId);
+            kruser = sqlSession.selectOne("com.cis.krchismvc.repository.UserRepository.getUserinfobyId", id);
         } catch (DataAccessException e) {
             e.printStackTrace();
             throw e;

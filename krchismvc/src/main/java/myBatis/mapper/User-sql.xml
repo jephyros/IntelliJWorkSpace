@@ -26,6 +26,15 @@
 
 		]]>
     </select>
+    <select id="getUserinfobyId" parameterType="long" resultType="com.cis.krchismvc.repository.KrUser">
+        <![CDATA[
+			 select id,userId,name,password,email,createDate,modifyid,modifyDate
+			 from Kruser
+			 where id=#{id}
+
+		]]>
+    </select>
+
     <select id="getUserinfo" parameterType="string" resultType="com.cis.krchismvc.repository.KrUser">
         <![CDATA[
 			 select id,userId,name,password,email,createDate,modifyid,modifyDate
@@ -34,4 +43,19 @@
 
 		]]>
     </select>
+
+
+    <update id="updateUser" parameterType="map" >
+        update Kruser
+        <set>
+            <if test="name !=null"> name =#{name} ,</if>
+            <if test="password !=null"> password =#{password} ,</if>
+            <if test="email !=null"> email =#{email} ,</if>
+            <if test="modifyid !=null"> modifyid =#{modifyid} ,</if>
+            <if test="modifyid !=null"> modifyDate =now(),</if>
+        </set>
+		where id = #{id}
+
+
+    </update>
 </mapper>

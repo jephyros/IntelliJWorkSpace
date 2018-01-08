@@ -36,7 +36,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${sessionScope.krchissessionuser.name}님 마이페이지 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">정보수정</a></li>
+                        <li><a href="${myContextPath}/users/updateForm">개인정보수정</a></li>
                         <li><a href="#">내활동내역</a></li>
                         <li class="divider"></li>
                         <li><a href="${myContextPath}/users/">회원목록조회</a></li>
