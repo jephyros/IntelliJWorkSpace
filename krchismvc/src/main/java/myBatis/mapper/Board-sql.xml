@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cis.krchismvc.repository.BoardRepository">
+
+    <resultMap id="boardlistMap" type="com.cis.krchismvc.repository.Krboard_index">
+        <result property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="contents" column="contents"/>
+        <result property="answercount" column="answercount"/>
+        <result property="createDate" column="createDate"/>
+        <result property="createuserId" column="createuserId"/>
+        <result property="modifyDate" column="modifyDate"/>
+        <result property="modifyuserId" column="modifyuserId"/>
+        <collection property="createUserName" column="createuserId" javaType="String"  select="getCommentListById"/>
+
+    </resultMap>
+
+
+    <select id="boardlist" resultMap="boardlistMap">
+        <![CDATA[
+			 select  id,title,contents,answercount,createDate,createuserId,modifyDate,modifyuserId
+              From Krboard order by id desc limit 9;
+
+
+		]]>
+    </select>
+
+    <select id="getCommentListById" resultType="string">
+			  SELECT name FROM Kruser WHERE id = #{createuserId}
+
+
+
+    </select>
+
+
+
+</mapper>

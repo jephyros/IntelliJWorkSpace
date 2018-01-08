@@ -14,78 +14,16 @@
 
 
     <div class="container">
+    <c:forEach var="m" items="${boardList}">
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-                <h4>김정은 핵미사일 발사1~~~~~~</h4>
-                <span class="label label-default">2018-01-16 16:00</span> <span class="label label-info">>최인석</span>
-                <a href ="#"><p><span class="label label-primary">내용보기</span><span class="badge">4</span></p></a>
+                <h4>${m.title}</h4>
+                <span class="label label-default">${m.createDate}</span> <span class="label label-info">>${m.createUserName}</span>
+                <a href ="/boards/${m.id}"><p><span class="label label-primary">내용보기</span><span class="badge">${m.answercount}</span></p></a>
 
             </div>
         </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <h4>김정은 핵미사일 발사1~~~~~~</h4>
-                <span class="label label-default">2018-01-16 16:00</span> <span class="label label-info">>최인석</span>
-                <a href ="#"><p><span class="label label-primary">내용보기</span><span class="badge">4</span></p></a>
-
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <h4>김정은 핵미사일 발사1~~~~~~</h4>
-                <span class="label label-default">2018-01-16 16:00</span> <span class="label label-info">>최인석</span>
-                <a href ="#"><p><span class="label label-primary">내용보기</span><span class="badge">4</span></p></a>
-
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <h4>김정은 핵미사일 발사1~~~~~~</h4>
-                <span class="label label-default">2018-01-16 16:00</span> <span class="label label-info">>최인석</span>
-                <a href ="#"><p><span class="label label-primary">내용보기</span><span class="badge">4</span></p></a>
-
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <h4>김정은 핵미사일 발사1~~~~~~</h4>
-                <span class="label label-default">2018-01-16 16:00</span> <span class="label label-info">>최인석</span>
-                <a href ="#"><p><span class="label label-primary">내용보기</span><span class="badge">4</span></p></a>
-
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <h4>김정은 핵미사일 발사1~~~~~~</h4>
-                <span class="label label-default">2018-01-16 16:00</span> <span class="label label-info">>최인석</span>
-                <a href ="#"><p><span class="label label-primary">내용보기</span><span class="badge">4</span></p></a>
-
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <h4>김정은 핵미사일 발사7~~~~~~</h4>
-                <span class="label label-default">2018-01-16 16:00</span> <span class="label label-info">>최인석</span>
-                <a href ="#"><p><span class="label label-primary">내용보기</span><span class="badge">4</span></p></a>
-
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <h4>김정은 핵미사일 발사1~~~~~~</h4>
-                <span class="label label-default">2018-01-16 16:00</span> <span class="label label-info">>최인석</span>
-                <a href ="#"><p><span class="label label-primary">내용보기</span><span class="badge">4</span></p></a>
-
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <h4>김정은 핵미사일 발사9~~~~~~</h4>
-                <span class="label label-default">2018-01-16 16:00</span> <span class="label label-info">>최인석</span>
-                <a href ="#"><p><span class="label label-primary">내용보기</span><span class="badge">4</span></p></a>
-
-            </div>
-        </div>
+    </c:forEach>
 
     </div>
     <%@include file="include/footer.jsp"%>
