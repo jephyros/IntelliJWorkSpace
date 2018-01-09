@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
     @RequestMapping("/")
     public String index(Authentication auth, Model model) {
+        /*
         if (auth != null && auth.getName() != null) {
             model.addAttribute("message", "!!" + auth.getName() + " 님 환영합니다.");
         } else {
             model.addAttribute("message", "Welcome anonymous user");
         }
-        return "securitytest";
+        */
+        return "index";
 
     }
 }
