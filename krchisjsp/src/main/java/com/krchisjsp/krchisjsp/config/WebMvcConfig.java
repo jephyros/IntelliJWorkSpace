@@ -1,4 +1,4 @@
-package com.krchisjsp.krchisjsp;
+package com.krchisjsp.krchisjsp.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
