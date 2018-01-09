@@ -2,12 +2,14 @@ package com.krchisjsp.krchisjsp;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
+@EnableJpaRepositories(basePackages = {"com.krchisjsp.krchisjsp.repository"})
 public class WebMvcConfig {
 
     @Bean
