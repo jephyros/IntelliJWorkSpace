@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
     @RequestMapping("/")
     public String index(){
-        System.out.println("수행되나");
+        System.out.println("Han222");
         return "index";
     }
 }

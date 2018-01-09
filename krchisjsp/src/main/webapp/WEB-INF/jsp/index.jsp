@@ -9,5 +9,6 @@
 <body>
 hi spring boot jsp
 스프링부트 jsp
+음 인텔레제이에서 직접실행이아니고 spring-boot:run 으로하니까되네
 </body>
 </html>
