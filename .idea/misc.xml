@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/boottest" />
     <file type="web" url="file://$PROJECT_DIR$/krchismvc" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/krchismus/pom.xml" />
-        <option value="$PROJECT_DIR$/krchisjsp/pom.xml" />
         <option value="$PROJECT_DIR$/krchismvc/pom.xml" />
+        <option value="$PROJECT_DIR$/bootjsp/pom.xml" />
       </list>
     </option>
   </component>
