@@ -32,6 +32,16 @@ public class BootjspApplication {
             ssuer.setRole(Role.ROLE_USER);
             userRepository.save(ssuer);
 
+            User s1 = new User();
+            s1.setUserId("admin");
+            s1.setPassword("1111");
+            s1.setName(("홍길동"));
+            s1.setNickname("관리자");
+            s1.setEmail("hgd@naver.com");
+            s1.setEnabled(true);
+            s1.setRole(Role.ROLE_ADMIN);
+            userRepository.save(s1);
+
 
 
         };
