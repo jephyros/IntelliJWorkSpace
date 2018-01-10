@@ -14,16 +14,16 @@
 
 
 <div class="container">
-    <%--<c:forEach var="m" items="${boardList}">
+    <c:forEach var="m" items="${boardList}">
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
                 <h4>${m.title}</h4>
-                <span class="label label-default">${m.createDate}</span> <span class="label label-info">>${m.createUserName}</span>
-                <a href ="/boards/${m.id}"><p><span class="label label-primary">내용보기</span><span class="badge">${m.answercount}</span></p></a>
+                <span class="label label-default">${m.createDate}</span> <span class="label label-info">>${m.createUsernum}</span>
+                <a href ="/boards/${m.num}"><p><span class="label label-primary">내용보기</span><span class="badge">${m.answercnt}</span></p></a>
 
             </div>
         </div>
-    </c:forEach>--%>
+    </c:forEach>
 
 </div>
 <%@include file="include/footer.jsp"%>

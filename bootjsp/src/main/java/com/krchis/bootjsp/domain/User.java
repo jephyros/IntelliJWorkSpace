@@ -11,26 +11,21 @@ import java.time.format.DateTimeFormatter;
 public class User {
     @Id
     @GeneratedValue
-    private Long id;
-
+    private Long usernum;
     @Column(nullable = false)
     private String userId;
-
     @Column(nullable = false)
     private String password;
-
     private String name;
     private String nickname;
-
     private String email;
-
-
     @Column(nullable = false)
     private Boolean enabled;
-
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    ////필드끝
 
 
 
@@ -38,7 +33,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "id=" + usernum +
                 ", userId='" + userId + '\'' +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
@@ -50,11 +45,11 @@ public class User {
     }
 
     public Long getId() {
-        return id;
+        return usernum;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long usernum) {
+        this.usernum = usernum;
     }
 
     public String getUserId() {
