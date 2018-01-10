@@ -39,7 +39,7 @@
                 <li><a href="${myContextPath}/logout">로그아웃</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                    ${pageContext.request.userPrincipal.name}님 마이페이지 <span class="caret"></span>
+                        <sec:authentication property="principal.name"/>님 마이페이지 <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="${myContextPath}/users/updateForm">개인정보수정</a></li>

@@ -5,15 +5,26 @@ import org.springframework.security.core.authority.AuthorityUtils;
 public class SecurityUser extends org.springframework.security.core.userdetails.User {
     private static final long serialVersionUID = 7369103590269799780L;
     private User user;
-    private String rname;
+    //private String rname;
+    private String name;
+    private String nicknake;
 
 
     public SecurityUser(User user) {
         super(user.getUserId(),user.getPassword(),
                 AuthorityUtils.createAuthorityList(user.getRole().toString()));
         this.user = user;
-        this.rname = user.getName();
+        this.name = user.getName();
+        this.nicknake = user.getNickname();
 
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getNicknake() {
+        return nicknake;
     }
 
     public User getUser() {
