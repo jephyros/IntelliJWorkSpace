@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -37,7 +38,9 @@
                 <c:if test = "${pageContext.request.userPrincipal.name != null}">
                 <li><a href="${myContextPath}/logout">로그아웃</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${pageContext.request.userPrincipal.name}님 마이페이지 <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    ${pageContext.request.userPrincipal.name}님 마이페이지 <span class="caret"></span>
+                    </a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="${myContextPath}/users/updateForm">개인정보수정</a></li>
                         <li><a href="#">내활동내역</a></li>
